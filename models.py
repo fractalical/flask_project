@@ -9,12 +9,12 @@ class User(Base):
     __tablename__ = 'flask_user'
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
-    username = sa.Column(sa.String, nullable=False, index=True)
+    username = sa.Column(sa.String, nullable=False, unique=True, index=True)
     password = sa.Column(sa.String, nullable=False)
     created_at = sa.Column(sa.DateTime, server_default=func.now())
 
 
-class Advetisement(Base):
+class AdvertisementModel(Base):
     __tablename__ = 'flask_adv'
 
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
