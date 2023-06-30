@@ -31,7 +31,6 @@ class AuthUser(CreateUser):
 class AdvertisementSchema(pydantic.BaseModel):
     title: str
     text: str
-    owner_id: Optional[int]
 
 
 VALIDATION_CLASS = Union[Type[CreateUser], Type[PatchUser], Type[AuthUser],

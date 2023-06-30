@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 
 from service import HttpError
-from views import UserView, UserAuthView
+from views import UserView, UserAuthView, AdvetisementView
 
 app = Flask('app')
 
@@ -25,4 +25,10 @@ app.add_url_rule('/user/',
                  methods=['POST'])
 app.add_url_rule('/auth_user/',
                  view_func=UserAuthView.as_view('auth_user'),
+                 methods=['POST'])
+app.add_url_rule('/advertisement/<int:adv_id>',
+                 view_func=AdvetisementView.as_view('with_advertisement_id'),
+                 methods=['GET', 'DELETE'])
+app.add_url_rule('/advertisement/',
+                 view_func=AdvetisementView.as_view('create_advertisement'),
                  methods=['POST'])
